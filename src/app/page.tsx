@@ -1,13 +1,7 @@
 "use client";
-import { CldUploadButton, CldImage } from "next-cloudinary";
-import { useState } from "react";
-
-type UploadResult = {
-  info: {
-    public_id: string;
-  };
-  event: "success";
-};
+import { CldImage } from "next-cloudinary";
+import { useState } from "react"; 
+import UploadButton from "./gallery/UploadButton";
 
 export default function Home() {
   const [imageId, setImageId] = useState(""); // image id to get the latest uploaded img
@@ -15,14 +9,7 @@ export default function Home() {
   return (
     <div className="flex justify-center items-center w-full">
       {/* Upload button */}
-      <CldUploadButton
-        // @ts-ignore
-        onUpload={(result: UploadResult) => {
-          console.log(result);
-          setImageId(result.info.public_id);
-        }}
-        uploadPreset="ewrqaie3"
-      />
+      <UploadButton />
 
       {/* Get image from cloudinary */}
       {imageId && (
@@ -37,4 +24,4 @@ export default function Home() {
     </div>
   );
 }
-// 30.00
+// 46.13
