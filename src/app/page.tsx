@@ -1,6 +1,6 @@
 "use client";
 import { CldImage } from "next-cloudinary";
-import { useState } from "react"; 
+import { useState } from "react";
 import UploadButton from "./gallery/UploadButton";
 
 export default function Home() {
@@ -24,4 +24,5 @@ export default function Home() {
     </div>
   );
 }
-// 46.13
+
+// 58.27

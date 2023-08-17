@@ -11,11 +11,9 @@ type SearchResults = {
 const GalleryPage = async () => {
   const results = (await cloudinary.v2.search
     .expression("resource_type:image")
-    .sort_by("public_id", "desc")
+    .sort_by("created_at", "desc")
     .max_results(10)
     .execute()) as { resources: SearchResults[] };
-
-  console.log(results);
 
   return (
     <section className="flex flex-col gap-8">
@@ -33,6 +31,7 @@ const GalleryPage = async () => {
             width="400"
             height="300"
             alt="an image of something"
+            public_id={result.public_id}
           />
         ))}
       </div>
