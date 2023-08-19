@@ -24,7 +24,7 @@ const Favourite = async () => {
             key={result.public_id}
             path={"/favourite"}
             src={result.public_id}
-            imageData={result}
+            imageData={result} 
             width="400"
             height="300"
             alt="an image of something"
