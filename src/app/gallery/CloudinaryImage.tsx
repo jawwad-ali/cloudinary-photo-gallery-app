@@ -40,7 +40,7 @@ const CloudinaryImage = (props: any & SearchResults) => {
       <div>
         <Loader2 className="text-white loader" />
       </div>
-    ); //1.26.56
+    ); 
   return (
     <div className="relative">
       <CldImage {...props} />
@@ -65,4 +65,4 @@ const CloudinaryImage = (props: any & SearchResults) => {
   );
 };
 export default CloudinaryImage;
-// 1.03.55
+//1.26.56

@@ -36,4 +36,3 @@ const Favourite = async () => {
 };
 
 export default Favourite;
-// 1.15.07
