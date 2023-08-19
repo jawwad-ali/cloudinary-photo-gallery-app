@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import React from "react";
 
 import { GalleryVertical, Album, Star } from "lucide-react";
+import Link from "next/link";
 
 const SideMenu = () => {
   return (
@@ -13,19 +14,34 @@ const SideMenu = () => {
           </h2>
           <div className="space-y-1">
             <Button
-              variant="secondary"
+              variant="ghost"
               className="w-full flex gap-2 justify-start"
+              asChild
             >
-              <GalleryVertical />
-              Gallery
+              <Link href="/gallery">
+                <GalleryVertical />
+                Gallery
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex gap-2 w-full justify-start">
-              <Album />
-              Albums
+            <Button
+              asChild
+              variant="ghost"
+              className="flex gap-2 w-full justify-start"
+            >
+              <Link href="/albums">
+                <Album />
+                Albums
+              </Link>
             </Button>
-            <Button variant="ghost" className="flex gap-2 w-full justify-start">
-              <Star />
-              Favourites
+            <Button
+              asChild
+              variant="ghost"
+              className="flex gap-2 w-full justify-start"
+            >
+              <Link href="/favourite">
+                <Star />
+                Favourites
+              </Link>
             </Button>
           </div>
         </div>

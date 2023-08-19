@@ -1,24 +1,44 @@
 "use client";
-import { useTransition } from "react";
+import { startTransition, useTransition } from "react";
 
 import { CldImage } from "next-cloudinary";
 
 import { Heart } from "lucide-react";
 
-import setAsFavouriteAction from "./actions";
+import { setAsFavoriteAction } from "./actions";
 
-const CloudinaryImage = (props: any & { publicId: string }) => {
-  const [transition, setTransition] = useTransition();
+import { SearchResults } from "./page";
+
+const CloudinaryImage = (props: any & SearchResults) => {
+  const [transition, startTransition] = useTransition();
+
+  const isFavourited = props?.imageData.tags?.includes("favourite");
 
   return (
     <div className="relative">
       <CldImage {...props} />
-      <Heart
-        className="absolute top-2 right-2"
-        onClick={() => setAsFavouriteAction(props.publicId)}
-      />
+
+      {isFavourited ? (
+        <Heart
+          className="absolute top-2 right-2 text-red-800 cursor-pointer"
+          onClick={() => {
+            startTransition(() => {
+              setAsFavoriteAction(props.imageData.public_id, false, props.path);
+            });
+          }}
+        />
+      ) : (
+        <Heart
+          className="absolute top-2 right-2 hover:text-red-500 cursor-pointer"
+          onClick={() => {
+            startTransition(() => {
+              setAsFavoriteAction(props.imageData.public_id, true, props.path);
+            });
+          }}
+        />
+      )}
     </div>
   );
 };
-
 export default CloudinaryImage;
+// 1.03.55

@@ -1,17 +1,11 @@
-import UploadButton from "./UploadButton";
-
 import cloudinary from "cloudinary";
-import CloudinaryImage from "./CloudinaryImage";
+import { SearchResults } from "../gallery/page";
+import CloudinaryImage from "../gallery/CloudinaryImage";
 
-export type SearchResults = {
-  public_id: string;
-  tag: string[];
-};
-
-const GalleryPage = async () => {
+const Favourite = async () => {
   // Getting the uploaded image from cloudinary
   const results = (await cloudinary.v2.search
-    .expression("resource_type:image")
+    .expression("resource_type:image AND tags=favourite")
     .with_field("tags")
     .sort_by("created_at", "desc")
     .max_results(30)
@@ -20,8 +14,7 @@ const GalleryPage = async () => {
   return (
     <section className="flex flex-col gap-8">
       <div className="flex justify-between">
-        <h1 className="text-4xl font-bold">Gallery</h1>
-        <UploadButton />
+        <h1 className="text-4xl font-bold">Favourite Images</h1>
       </div>
 
       {/* Fetching images from cloudinary */}
@@ -29,7 +22,7 @@ const GalleryPage = async () => {
         {results?.resources?.map((result) => (
           <CloudinaryImage
             key={result.public_id}
-            path={'/gallery'}
+            path={"/favourite"}
             src={result.public_id}
             imageData={result}
             width="400"
@@ -42,4 +35,5 @@ const GalleryPage = async () => {
   );
 };
 
-export default GalleryPage;
+export default Favourite;
+// 1.15.07
