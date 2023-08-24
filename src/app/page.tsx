@@ -4,7 +4,7 @@ import { useState } from "react";
 import UploadButton from "./gallery/UploadButton";
 
 export default function Home() {
-  const [imageId, setImageId] = useState(""); // image id to get the latest uploaded img
+  const [imageId, setImageId] = useState("xcqqzw07jqfmodgz8yxh"); // image id to get the latest uploaded img
 
   return (
     <div className="flex justify-center items-center w-full">

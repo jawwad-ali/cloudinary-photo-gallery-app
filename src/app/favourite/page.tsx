@@ -1,10 +1,11 @@
-import cloudinary from "cloudinary";
 import { SearchResults } from "../gallery/page";
 import CloudinaryImage from "../gallery/CloudinaryImage";
 
+import { v2 as cloudinary } from "cloudinary";
+
 const Favourite = async () => {
   // Getting the uploaded image from cloudinary
-  const results = (await cloudinary.v2.search
+  const results = (await cloudinary.search
     .expression("resource_type:image AND tags=favourite")
     .with_field("tags")
     .sort_by("created_at", "desc")
@@ -18,13 +19,13 @@ const Favourite = async () => {
       </div>
 
       {/* Fetching images from cloudinary */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4"> 
         {results?.resources?.map((result) => (
           <CloudinaryImage
             key={result.public_id}
             path={"/favourite"}
             src={result.public_id}
-            imageData={result} 
+            imageData={result}
             width="400"
             height="300"
             alt="an image of something"

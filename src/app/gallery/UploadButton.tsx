@@ -14,19 +14,19 @@ type UploadResult = {
   };
   event: "success";
 };
-
+ 
 const UploadButton = () => {
-  const router = useRouter();
+  const router = useRouter(); 
   return (
-    <>
+    <>  
       <Button asChild>
         <CldUploadButton
           //   @ts-ignore
           onUpload={(result: UploadResult) => {
             console.log(result);
             router.refresh();
-          }}
-          uploadPreset="ewrqaie3"
+          }} 
+          uploadPreset="ewrqaie3" 
         >
           <Upload className="mr-2" /> Upload
         </CldUploadButton>

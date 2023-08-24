@@ -1,9 +1,20 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar,  AvatarImage } from "@/components/ui/avatar";
+
 import "../app/globals.css";
+
 import { Inter } from "@next/font/google";
+
 import SideMenu from "components/SideMenu";
 
+import { v2 as cloudinary } from "cloudinary"
+
 const inter = Inter({ subsets: ["latin"] });
+
+cloudinary.config({
+  cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
+  api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
+}); 
 
 export default function RootLayout({
   children,
