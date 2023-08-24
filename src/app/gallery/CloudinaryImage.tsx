@@ -9,15 +9,6 @@ import { setAsFavoriteAction } from "./actions";
 
 import { SearchResults } from "./page";
 
-// import { v2 as cloudinary } from "cloudinary";
-
-// cloudinary.config({
-
-//   cloud_name: 'dcprrlc1p',
-//   api_key: '199777446521978',
-//   api_secret: 'qu7A87V-k1D2c6xR-rNNB9fCjzA',
-// });
-
 const CloudinaryImage = (props: any & SearchResults) => {
   const [transition, startTransition] = useTransition();
 
@@ -74,4 +65,3 @@ const CloudinaryImage = (props: any & SearchResults) => {
   );
 };
 export default CloudinaryImage;
-//1.26.56
