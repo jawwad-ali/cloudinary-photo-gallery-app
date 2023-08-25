@@ -4,9 +4,9 @@ import { SearchResults } from "@/app/gallery/page";
 const ImageGrid = ({ images }: { images: SearchResults[] }) => {
   const MAX_COLUMNS = 4;
   function getColumns(colIndex: number) {
-    return images.filter((recourse, idx) => idx % MAX_COLUMNS === colIndex);
-  }
- 
+    return images.filter((_, idx) => idx % MAX_COLUMNS === colIndex);
+  } 
+
   return (
     <>
       {/* Fetching images from cloudinary */}

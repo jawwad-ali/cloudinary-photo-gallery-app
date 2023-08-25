@@ -1,7 +1,7 @@
 import { SearchResults } from "../gallery/page";
-import CloudinaryImage from "../gallery/CloudinaryImage";
 
 import { v2 as cloudinary } from "cloudinary";
+import ImageGrid from "components/ImageGrid";
 
 const Favourite = async () => {
   // Getting the uploaded image from cloudinary
@@ -19,19 +19,7 @@ const Favourite = async () => {
       </div>
 
       {/* Fetching images from cloudinary */}
-      <div className="grid grid-cols-4 gap-4"> 
-        {results?.resources?.map((result) => (
-          <CloudinaryImage
-            key={result.public_id}
-            path={"/favourite"}
-            src={result.public_id}
-            imageData={result}
-            width="400"
-            height="300"
-            alt="an image of something"
-          />
-        ))}
-      </div>
+      <ImageGrid images={results.resources} />
     </section>
   );
 };

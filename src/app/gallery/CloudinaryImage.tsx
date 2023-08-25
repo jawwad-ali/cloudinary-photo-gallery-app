@@ -8,9 +8,10 @@ import { Heart, Loader2 } from "lucide-react";
 import { setAsFavoriteAction } from "./actions";
 
 import { SearchResults } from "./page";
+import { ImageMenu } from "components/ImageMenu";
 
 const CloudinaryImage = (props: any & SearchResults) => {
-  const [transition, startTransition] = useTransition();
+  const [_, startTransition] = useTransition();
 
   const [isFavourited, setIsFavourited] = useState(
     props?.imageData?.tags?.includes("favourite")
@@ -18,7 +19,7 @@ const CloudinaryImage = (props: any & SearchResults) => {
 
   const [removing, setRemoving] = useState<boolean>(false);
 
-  const RemoveImage = () => { 
+  const RemoveImage = () => {
     setIsFavourited(false);
     setRemoving(true);
     startTransition(() => {
@@ -47,12 +48,12 @@ const CloudinaryImage = (props: any & SearchResults) => {
 
       {isFavourited ? (
         <Heart
-          className="absolute top-2 right-2 text-red-800 cursor-pointer"
+          className="absolute top-3 left-2 text-red-800 cursor-pointer"
           onClick={RemoveImage}
         />
       ) : (
         <Heart
-          className="absolute top-2 right-2 hover:text-red-500 cursor-pointer"
+          className="absolute top-3 left-2 hover:text-red-500 cursor-pointer"
           onClick={() => {
             setIsFavourited(true);
             startTransition(() => {
@@ -61,6 +62,9 @@ const CloudinaryImage = (props: any & SearchResults) => {
           }}
         />
       )}
+
+      {/* Humburger icon on the image to add image to the albums */}
+      <ImageMenu />
     </div>
   );
 };

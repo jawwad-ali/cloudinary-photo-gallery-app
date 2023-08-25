@@ -24,7 +24,7 @@ const GalleryPage = async () => {
         <UploadButton />
       </div>
 
-      {/* Component to get Images */}
+      {/* Component to get Images */} 
       <ImageGrid images={results.resources} />
     </section>
   );
