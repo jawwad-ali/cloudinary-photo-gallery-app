@@ -5,10 +5,11 @@ import { CldImage } from "next-cloudinary";
 
 import { Heart, Loader2 } from "lucide-react";
 
-import { setAsFavoriteAction } from "./actions";
-
 import { SearchResults } from "./page";
+
 import { ImageMenu } from "components/ImageMenu";
+
+import { setAsFavoriteAction } from "components/actions";
 
 const CloudinaryImage = (props: any & SearchResults) => {
   const [_, startTransition] = useTransition();
@@ -64,7 +65,7 @@ const CloudinaryImage = (props: any & SearchResults) => {
       )}
 
       {/* Humburger icon on the image to add image to the albums */}
-      <ImageMenu />
+      <ImageMenu image={props?.imageData} /> 
     </div>
   );
 };

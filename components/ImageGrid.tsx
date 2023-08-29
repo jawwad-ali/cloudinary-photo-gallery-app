@@ -6,7 +6,7 @@ const ImageGrid = ({ images }: { images: SearchResults[] }) => {
   function getColumns(colIndex: number) {
     return images.filter((_, idx) => idx % MAX_COLUMNS === colIndex);
   } 
-
+ 
   return (
     <>
       {/* Fetching images from cloudinary */}
@@ -34,4 +34,3 @@ const ImageGrid = ({ images }: { images: SearchResults[] }) => {
 };
 
 export default ImageGrid;
-// 1..31.39

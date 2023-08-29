@@ -7,7 +7,7 @@ import { Inter } from "@next/font/google";
 import SideMenu from "components/SideMenu";
 
 import { v2 as cloudinary } from "cloudinary"
-
+ 
 const inter = Inter({ subsets: ["latin"] });
 
 cloudinary.config({
