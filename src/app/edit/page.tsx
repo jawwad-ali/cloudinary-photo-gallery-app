@@ -11,7 +11,7 @@ const Edit = ({
   const [transformation, setTransformation] = useState<
     | undefined
     | "generative-fill"
-    | "pixelate"
+    | "pixelate" 
     | "grayscale"
     | "removeBackground"
   >();
@@ -57,19 +57,16 @@ const Edit = ({
               alt={publicId}
               width={300}
               height={300}
-              crop="pad"
-              //   @ts-ignore
+              // @ts-ignore
               pixelate
             />
           )}
-           {transformation === "removeBackground" && (
+          {transformation === "removeBackground" && (
             <CldImage
               src={publicId}
               alt={publicId}
               width={300}
               height={300}
-              crop="pad"
-              //   @ts-ignore
               removeBackground
             />
           )}
