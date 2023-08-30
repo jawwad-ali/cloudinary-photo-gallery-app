@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { FolderPlus, MenuSquare } from "lucide-react";
+import { FolderPlus, MenuSquare, Pencil } from "lucide-react";
 import { AddToAlbumDialog } from "./AddToAlbumDialog";
 import { SearchResults } from "@/app/gallery/page";
-import { useState } from "react";
+import Link from "next/link";
 
 export function ImageMenu({ image }: { image: SearchResults }) {
   return (
@@ -21,11 +23,21 @@ export function ImageMenu({ image }: { image: SearchResults }) {
             <MenuSquare />
           </Button>
         </DropdownMenuTrigger>
+
         <DropdownMenuContent className="w-52">
-          <DropdownMenuLabel>
-            {/* Child Component to Open dialog box */}
-            <AddToAlbumDialog image={image} />
-          </DropdownMenuLabel>
+          <DropdownMenuGroup>
+            <DropdownMenuItem>
+              {/* Child Component to Open dialog box */}
+              <AddToAlbumDialog image={image} />
+            </DropdownMenuItem>
+
+            <DropdownMenuItem asChild>
+              <Link href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}>
+                <Pencil className="h-4 w-4" />
+                 <span>Edit</span> 
+              </Link>
+            </DropdownMenuItem>
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
