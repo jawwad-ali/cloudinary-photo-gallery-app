@@ -5,11 +5,10 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { FolderPlus, MenuSquare, Pencil } from "lucide-react";
+import { MenuSquare, Pencil } from "lucide-react";
 import { AddToAlbumDialog } from "./AddToAlbumDialog";
 import { SearchResults } from "@/app/gallery/page";
 import Link from "next/link";
@@ -31,11 +30,15 @@ export function ImageMenu({ image }: { image: SearchResults }) {
               <AddToAlbumDialog image={image} />
             </DropdownMenuItem>
 
-            <DropdownMenuItem asChild>
-              <Link href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}>
-                <Pencil className="h-4 w-4" />
-                 <span>Edit</span> 
-              </Link>
+            <DropdownMenuItem asChild className="flex justify-start">
+              <Button asChild variant="ghost" className="pl-6">
+                <Link
+                  href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}
+                >
+                  <Pencil className="h-4 w-4" />
+                  <span className="pl-4">Edit</span>
+                </Link>
+              </Button>
             </DropdownMenuItem>
           </DropdownMenuGroup>
         </DropdownMenuContent>

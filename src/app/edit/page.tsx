@@ -6,12 +6,12 @@ import { useState } from "react";
 const Edit = ({
   searchParams: { publicId },
 }: {
-  searchParams: { publicId: string };
+  searchParams: { publicId: string }; 
 }) => {
   const [transformation, setTransformation] = useState<
     | undefined
     | "generative-fill"
-    | "pixelate" 
+    | "pixelate"   
     | "grayscale"
     | "removeBackground"
   >();
@@ -77,4 +77,3 @@ const Edit = ({
 };
 
 export default Edit;
-// 2.27.35
