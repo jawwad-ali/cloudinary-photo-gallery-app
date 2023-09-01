@@ -14,4 +14,3 @@ const AlbumGrid = ({ images }: { images: SearchResults[] }) => {
 };
 
 export default AlbumGrid;
-// 2.07.00

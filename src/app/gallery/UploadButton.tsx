@@ -6,15 +6,15 @@ import { Upload } from "lucide-react";
 
 import { CldUploadButton } from "next-cloudinary";
 
-import { useRouter } from "next/navigation";
-
+import { useRouter } from "next/navigation"; 
+ 
 type UploadResult = {
   info: {
     public_id: string;
-  };
+  }; 
   event: "success";
 };
- 
+
 const UploadButton = () => {
   const router = useRouter(); 
   return (

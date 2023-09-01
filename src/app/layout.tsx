@@ -1,4 +1,6 @@
-import { Avatar,  AvatarImage } from "@/components/ui/avatar";
+import type { Metadata } from "next";
+
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 import "../app/globals.css";
 
@@ -6,15 +8,23 @@ import { Inter } from "@next/font/google";
 
 import SideMenu from "components/SideMenu";
 
-import { v2 as cloudinary } from "cloudinary"
- 
+import { v2 as cloudinary } from "cloudinary";
+
 const inter = Inter({ subsets: ["latin"] });
 
+// Website Metadata
+export const metadata: Metadata = {
+  title: "Photo Album Application using Next.js 13 and Typescript",
+  description:
+    "Explore cherished memories with our Photo Album App, powered by Next.js 13 and Typescript. Organize, showcase, and relive moments effortlessly. Elevate your photo experience today.",
+};
+
+// Cloudinary Configration
 cloudinary.config({
   cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
   api_secret: process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
-}); 
+});
 
 export default function RootLayout({
   children,

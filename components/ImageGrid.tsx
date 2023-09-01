@@ -8,7 +8,7 @@ const ImageGrid = ({ images }: { images: SearchResults[] }) => {
   } 
  
   return (
-    <>
+    <> 
       {/* Fetching images from cloudinary */}
       <div className="grid grid-cols-4 gap-4">
         {[getColumns(0), getColumns(1), getColumns(2), getColumns(3)].map(
@@ -18,7 +18,7 @@ const ImageGrid = ({ images }: { images: SearchResults[] }) => {
                 <CloudinaryImage
                   key={result.public_id}
                   path={"/gallery"}
-                  src={result.public_id}
+                  src={result.public_id} 
                   imageData={result}
                   width="400"
                   height="300"

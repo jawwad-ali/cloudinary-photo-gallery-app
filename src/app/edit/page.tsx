@@ -1,20 +1,25 @@
 "use client";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
 const Edit = ({
   searchParams: { publicId },
 }: {
-  searchParams: { publicId: string }; 
+  searchParams: { publicId: string };
 }) => {
   const [transformation, setTransformation] = useState<
     | undefined
     | "generative-fill"
-    | "pixelate"   
+    | "pixelate"
     | "grayscale"
     | "removeBackground"
   >();
+
+  const [prompt, setPrompt] = useState("");
+  const [pendingPrompt, setPendingPrompt] = useState("");
 
   return (
     <section className="flex flex-col gap-8">
@@ -27,9 +32,22 @@ const Edit = ({
           <Button variant="ghost" onClick={() => setTransformation(undefined)}>
             Clear
           </Button>
-          <Button onClick={() => setTransformation("generative-fill")}>
-            Generative Fill
-          </Button>
+
+          <div className="flex flex-col gap-2">
+          <Button
+              onClick={() => {
+                setTransformation("generative-fill");
+                setPrompt(pendingPrompt);
+              }}
+            >
+              Apply Generative Fill
+            </Button>
+            <Label>Prompt</Label>
+            <Input
+              value={pendingPrompt}
+              onChange={(e) => setPendingPrompt(e.currentTarget.value)}
+            />
+          </div>
           <Button onClick={() => setTransformation("pixelate")}>
             Pixelate
           </Button>

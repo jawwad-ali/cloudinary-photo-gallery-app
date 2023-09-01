@@ -9,7 +9,7 @@ const Favourite = async () => {
     .expression("resource_type:image AND tags=favourite")
     .with_field("tags")
     .sort_by("created_at", "desc")
-    .max_results(30)
+    .max_results(30) 
     .execute()) as { resources: SearchResults[] };
 
   return (
@@ -19,7 +19,7 @@ const Favourite = async () => {
       </div>
 
       {/* Fetching images from cloudinary */}
-      <ImageGrid images={results.resources} />
+      <ImageGrid images={results.resources} /> 
     </section>
   );
 };
