@@ -6,7 +6,6 @@ import { GalleryVertical, Album, Star } from "lucide-react";
 import Link from "next/link";
 
 import cloudinary from "cloudinary";
-import { FolderProps } from "@/app/albums/page";
 
 const SideMenu = async () => {
   const { folders } = (await cloudinary.v2.api.root_folders()) as {
@@ -47,6 +46,7 @@ const SideMenu = async () => {
                 asChild
                 variant="ghost"
                 className="flex gap-2 w-full justify-start ml-4"
+                key={folder.name}
               >
                 <Link href={`/albums/${folder.path}`}>
                   <Album />
