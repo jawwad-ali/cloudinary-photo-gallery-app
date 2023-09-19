@@ -12,7 +12,7 @@ const Albums = async () => {
   const { folders } = (await cloudinary.v2.api.root_folders()) as FolderProps;
   return (
     <section className="flex flex-col gap-8">
-      <div className="flex justify-between">
+      <div className="flex justify-between"> 
         <h1 className="text-4xl font-bold">Albums</h1>
       </div>
 
