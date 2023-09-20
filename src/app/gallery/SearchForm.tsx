@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 const SearchForm = ({ initialSearch }: { initialSearch: string }) => {
   const [tagName, setTagName] = useState(initialSearch ?? "");
   const router = useRouter();
-  
+
   useEffect(() => {
     setTagName(initialSearch);
   }, [initialSearch]);
@@ -22,13 +22,13 @@ const SearchForm = ({ initialSearch }: { initialSearch: string }) => {
           e.preventDefault();
           router.replace(`/gallery?search=${encodeURIComponent(tagName)}`);
           router.refresh();
-          setTagName('')
+          setTagName("");
         }}
       >
-        <Label htmlFor="tag-name" className="text-right">
+        <Label htmlFor="tag-name" className="text-right mb-22">
           Search By Tag
         </Label>
-        <div className="flex gap-2">
+        <div className="flex gap-2 mt-3">
           <Input
             id="name"
             value={tagName}
@@ -37,7 +37,7 @@ const SearchForm = ({ initialSearch }: { initialSearch: string }) => {
           />
           <Button>Search</Button>
         </div>
-      </form> 
+      </form>
     </div>
   );
 };
