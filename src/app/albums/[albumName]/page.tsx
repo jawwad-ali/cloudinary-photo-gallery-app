@@ -15,7 +15,7 @@ const AlbumName = async ({ params }: { params: { albumName: string } }) => {
   return (
     <div className="flex flex-col gap-8">
       <div className="flex justify-between">
-        <h1 className="text-4xl font-bold">Albums "{params.albumName}"</h1>
+        <h1 className="text-4xl font-bold">Albums &quot;{params.albumName}&quot;</h1>
       </div>
 
       <div>
