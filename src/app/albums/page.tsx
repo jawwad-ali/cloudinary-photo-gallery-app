@@ -5,7 +5,7 @@ export interface FolderProps {
   folders: {
     name: string;
     path: string;
-  }[];
+  }[]; 
 }
 
 const Albums = async () => {
@@ -15,8 +15,8 @@ const Albums = async () => {
       <div className="flex justify-between"> 
         <h1 className="text-4xl font-bold">Albums</h1>
       </div>
-
-      <div className="grid grid-cols-3 gap-4">
+ 
+      <div className="grid md:grid-cols-3 grid-cols-1 gap-4 w-full"> 
         {folders.map((folder) => (
           <AddToAlbumCard folder={folder} key={folder.name} />
         ))}

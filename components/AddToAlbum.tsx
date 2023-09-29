@@ -10,19 +10,19 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-import Link from "next/link";
+import Link from "next/link"; 
 
 export function AddToAlbumCard({
   folder,
 }: {
   folder: { name: string; path: string };
-}) {
+}) { 
   return (
-    <Card className="w-[350px]">
+    <Card className="lg:w-[350px]">
       <CardHeader>
         <CardTitle>{folder.name}</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
-      </CardHeader>
+      </CardHeader> 
       <CardContent></CardContent>
       <CardFooter className="flex justify-between">
         <Button asChild>
